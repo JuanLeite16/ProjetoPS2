@@ -1,2 +1,13 @@
-# ProjetoPS2
-Projeto acadêmico para validação de dados bancários no formato PS2, geração de ficheiros PS2 a partir de arquivos de entrada e visualização de métricas em uma dashboard reativa, permitindo análise de consistência, erros e conformidade dos dados.
+# Análise de arquivos PS2
+
+PS2 é um formato bancário estruturado usado para débitos diretos, composto por registos padronizados que garantem a validação, integridade e processamento automático das transações financeiras.
+O principal objetivo desse projeto é gerarmos esse tipo de arquivo através de dados guardados em ficheiros e depois analisarmos os dados em uma Dashboard.
+
+Para a realização e cumprimento dos objetivos foram utilizadas as seguintes linguagens de programção:
+* **C**: Ler ficheiros e gerar o arquivo PS2 estruturado.
+* **Python**: Validação e manipulação de dados e visualização de métricas.
+
+## Documentação
+
+## Como Executar
+### Pré-requisitos
