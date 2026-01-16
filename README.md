@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="./doc/logo.png" alt="Logo PS2" width="200">
+</p>
+
 # Análise de arquivos PS2
 **Licenciatura em Engenharia de Sistemas Informáticos** (Pós-Laboral) 2025-26 Escola Superior de Tecnologia - IPCA
 
