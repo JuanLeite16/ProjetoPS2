@@ -138,6 +138,8 @@ celerybeat.pid
 .env
 .envrc
 .venv
+.myenv
+myenv/
 env/
 venv/
 ENV/
@@ -205,3 +207,13 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# Doxygen documentation
+latex/
+Doxyfile.save
+
+# Build
+*.aux
+*.log
+*.out
+*.toc
