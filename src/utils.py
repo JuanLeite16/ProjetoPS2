@@ -1,11 +1,14 @@
-def float_to_euros(valor):
-    pass
+def format_euro(valor):
+    return f"€{float(valor):,.2f}".replace(".", "X").replace(",", ".").replace("X", ",")
 
-def euros_to_float(valor):
-    pass
+def format_float(valor):
+    return str(valor).replace(".", "").replace(",", ".").replace("€", "")
 
 def cent_to_euros(cent):
-    pass
+    try:
+        return f"{float(cent)/100:.2f}"
+    except Exception as e:
+        raise Exception(f"Erro: {e}")
 
 def format_nif(nif):
     return f"{nif[:3]}.{nif[3:6]}.{nif[6:]}"
