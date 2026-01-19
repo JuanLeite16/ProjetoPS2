@@ -1,23 +1,28 @@
 import datetime
-from validations import validar_nif, validar_nib
+from validations import validar_nif, validar_nib, validar_ps2, validar_existencia_dados
+from utils import cent_to_euros, format_euro
 
 def ler_ps2(path):
-    erros_programa = []
     try:
-        with open(path, "r", encoding="utf-8") as ficheiro:
+        p = validar_ps2(path)
+    except Exception as e:
+        return False, f"Arquivo: {path}. Erro: {e}"
+    
+    try:
+        with open(p, "r", encoding="utf-8") as ficheiro:
             try:
                 linhas_lista = [linha.rstrip("\r\n") for linha in ficheiro]
-            except :
-                erros_programa.append("Impossível ler linhas do ficheiro")
-    except FileNotFoundError:
-        erros_programa.append("Ficheiro não encontrado.")
+            except Exception as e:
+                return False, f"Arquivo: {p.name}. Erro: {e}"
+    except Exception as e:
+        return False, f"Arquivo: {p.name}. Erro: {e}"
 
     dados_estruturados = {
         "cabecalho": {},
         "movimentos": [],
-        "fecho": {},
-        "erros": []
+        "fecho": {}
     }
+    entidade = data_formatada = "—"
 
     try:
         for pos, linha_atual in enumerate(linhas_lista, start=1):
@@ -25,13 +30,15 @@ def ler_ps2(path):
             tipo_registro = linha_atual[0]
 
             if tipo_registro == "1":
+                if len(linha_atual) != 64:
+                    raise ValueError(f"Linha {pos} de tamanho diferente para tipo 1.")
                 data = linha_atual[1:9]
                 entidade = linha_atual[9:35]
                 nif_entidade = linha_atual[35:44]
                 centimos = linha_atual[44:58]
                 registros = linha_atual[58:64]
 
-                euros = "—"
+                euros = registro_int = "—"
                 try:
                     data_formatada = datetime.datetime.strptime(data, "%Y%m%d").strftime("%d/%m/%Y")
                 except:
@@ -43,16 +50,21 @@ def ler_ps2(path):
                 except:
                     erros_dados.append("NIF")
                 try:
-                    euros = f"{int(centimos)/100:.2f}"
+                    euros = float(cent_to_euros(centimos))
                 except:
                     erros_dados.append("EUROS")
+                try:
+                    registro_int = int(registros)
+                except:
+                    erros_dados.append("REGISTROS")
 
                 dados_estruturados["cabecalho"] = {
+                    "Ficheiro": p.name,
                     "Data": data_formatada,
                     "Entidade": entidade.strip(),
                     "NIF": nif_entidade,
                     "Valor": euros,
-                    "Registros": registros.lstrip("0"),
+                    "Registros": registro_int,
                     "Erros": ", ".join(erros_dados)
                 }
 
@@ -62,7 +74,7 @@ def ler_ps2(path):
                 nib_cliente = linha_atual[11:32]
                 nif_cliente = linha_atual[32:41]
                 valor_pagar = linha_atual[41:55]
-                descricao = linha_atual[55:]
+                descricao = linha_atual[55:74]
 
                 valor = "—"
                 tipo_formatado = "Desconhecido"
@@ -82,17 +94,18 @@ def ler_ps2(path):
                 except:
                     erros_dados.append("NIB")
                 try:
-                    valor = f"{int(valor_pagar)/100:.2f}"
+                    valor = float(cent_to_euros(valor_pagar))
                 except:
                     erros_dados.append("VALOR")
 
                 movimento_estruturado = {
                     "Tipo": tipo_formatado,
-                    "Ordem": ordem_movimento.lstrip("0"),
+                    "Ordem": ordem_movimento,
                     "NIB": nib_cliente,
                     "NIF": nif_cliente,
-                    "Valor_Total": valor,
+                    "Valor": valor,
                     "Descrição": descricao,
+                    "Data": data_formatada,
                     "Erros": ", ".join(erros_dados)
                 }
                 dados_estruturados["movimentos"].append(movimento_estruturado)
@@ -101,23 +114,31 @@ def ler_ps2(path):
                 total_cent = linha_atual[1:15]
                 total_registros = linha_atual[15:]
 
-                valor_total = "—"
+                valor_total = total_reg_int = "—"
                 try:
-                    valor_total = f"{int(total_cent)/100:.2f}"
+                    valor_total = float(cent_to_euros(total_cent))
                 except:
                     erros_dados.append("VALOR TOTAL")
+                try:
+                    total_reg_int = int(total_registros)
+                except:
+                    erros_dados.append("TOTAL REGISTROS")
 
                 dados_estruturados["fecho"] = {
                     "Valor_Total": valor_total,
-                    "Total_Registros": total_registros.lstrip("0"),
+                    "Total_Registros": total_reg_int,
                     "Erros": ", ".join(erros_dados)
                 }
 
             else:
-                erros_programa.append(f"Tipo de registro corrompido na linha {pos}")
-    except:
-        erros_programa.append("Erro ao tentar ler linhas.")
+                raise ValueError(f"Arquivo corrompido na linha: {pos}")
+    except Exception as e:
+        return False, f"Arquivo: {p.name}. Erro: {e}"
+
+    try:
+        if validar_existencia_dados(dados_estruturados) == []:
+            raise ValueError(f"Arquivo não tem movimentos.")
+    except Exception as e:
+        return False, f"Arquivo: {p.name}. Erro: {e}"
     
-    dados_estruturados["erros"].append(erros_programa)
-    
-    return dados_estruturados
+    return True, dados_estruturados
