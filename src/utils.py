@@ -1,8 +1,18 @@
-def format_euro(valor):
-    return f"€{float(valor):,.2f}".replace(".", "X").replace(",", ".").replace("X", ",")
+import os
 
-def format_float(valor):
-    return str(valor).replace(".", "").replace(",", ".").replace("€", "")
+def format_euro(x):
+    try:
+        valor = f"€{float(x):,.2f}".replace(".", "X").replace(",", ".").replace("X", ",")
+        return valor
+    except:
+        return x
+
+def format_float(x):
+    try:
+        valor = str(x).replace(".", "").replace(",", ".").replace("€", "")
+        return valor
+    except:
+        return x
 
 def cent_to_euros(cent):
     try:
@@ -11,7 +21,18 @@ def cent_to_euros(cent):
         raise Exception(f"Erro: {e}")
 
 def format_nif(nif):
-    return f"{nif[:3]}.{nif[3:6]}.{nif[6:]}"
+    try:
+        nif_ok = f"{nif[:3]}.{nif[3:6]}.{nif[6:]}"
+        return nif_ok
+    except:
+        return nif
 
 def format_nib(nib):
-    return f"{nib[:4]} {nib[4:8]} {nib[8:19]} {nib[19:]}"
+    try:
+        nib_ok = f"{nib[:4]} {nib[4:8]} {nib[8:19]} {nib[19:]}"
+        return nib_ok
+    except:
+        return nib
+    
+def limpar_terminal():
+    os.system("cls" if os.name == "nt" else "clear")
