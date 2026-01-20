@@ -19,4 +19,25 @@ Para a realização e cumprimento dos objetivos foram utilizadas as seguintes li
 ## Organização do Repositório
 
 ## Como Executar
-### Pré-requisitos
+### **Pré-requisitos:**
+Antes de executar o programa via CLI ou shiny é necessário a criação de uma venv e a instalação das bibliotecas usada no projeto.
+
+```
+python3 -m venv venv
+source venv/bin/activate          # Linux/macOS
+venv/Scripts/activate             # Windows
+
+pip install -r requirements.txt
+```
+
+### CLI
+```
+cd src
+python cli.py <ficheiro1> <ficheiro2> <...>
+```
+
+### Shiny
+```
+cd src
+shiny run app.py
+```
