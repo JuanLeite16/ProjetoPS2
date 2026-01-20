@@ -1,5 +1,5 @@
 import pandas as pd
-from processing import processar_ficheiros
+from processing import processar_ficheiros, mostrar_df
 
 pd.set_option('display.max_rows', None)
 pd.set_option('display.max_columns', None)
@@ -7,23 +7,9 @@ pd.set_option('display.width', 1000)
 pd.set_option('display.colheader_justify', 'center')
 ficheiros = ["../data/1.ps2", "../data/2.ps2", "../data/3.ps2", "../data/4.ps2", "../data/5.ps2"]
 
-DFs = processar_ficheiros(ficheiros)
-print("="*120)
-print(f"{'RESUMO FICHEIROS':^120}")
-print("="*120)
-texto_cab = DFs["resumo"]["cabecalho"].to_string(index=False)
-for linha in texto_cab.splitlines():
-    print(linha.center(120))
-print("="*120)
-print("RESUMO MOVIMENTOS".center(120))
-print("="*120)
-texto_mov = DFs["resumo"]["movimentos"].to_string(index=False)
-for linha in texto_mov.splitlines():
-    print(linha.center(120))
-print("="*120)
-print("RESUMO FECHO".center(120))
-print("="*120)
-texto_fec = DFs["resumo"]["fecho"].to_string(index=False)
-for linha in texto_fec.splitlines():
-    print(linha.center(120))
-
+ok, DFs = processar_ficheiros(ficheiros)
+if ok:
+    mostrar_df(DFs["1.ps2"])
+if not ok:
+    for pos, erro in enumerate(DFs, start=1):
+        print(f"{pos}° => {erro}")

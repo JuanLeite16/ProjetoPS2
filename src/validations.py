@@ -1,5 +1,4 @@
 from pathlib import Path
-import pandas as pd
 
 def validar_nif(nif):
     if not nif.isdigit() or len(nif) != 9:

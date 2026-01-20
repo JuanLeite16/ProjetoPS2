@@ -38,7 +38,7 @@ def ler_ps2(path):
                 centimos = linha_atual[44:58]
                 registros = linha_atual[58:64]
 
-                euros = registro_int = "—"
+                euros = registro_int = None
                 try:
                     data_formatada = datetime.datetime.strptime(data, "%Y%m%d").strftime("%d/%m/%Y")
                 except:
@@ -69,14 +69,16 @@ def ler_ps2(path):
                 }
 
             elif tipo_registro == "2":
+                if len(linha_atual) != 82:
+                    raise ValueError(f"Linha {pos} de tamanho diferente para tipo 2.")
                 tipo_movimento = linha_atual[1:8]
                 ordem_movimento = linha_atual[8:11]
                 nib_cliente = linha_atual[11:32]
                 nif_cliente = linha_atual[32:41]
                 valor_pagar = linha_atual[41:55]
-                descricao = linha_atual[55:74]
+                descricao = linha_atual[55:]
 
-                valor = "—"
+                valor = None
                 tipo_formatado = "Desconhecido"
                 try:
                     tipo_formatado = tipo_movimento.lstrip("0")
@@ -111,10 +113,12 @@ def ler_ps2(path):
                 dados_estruturados["movimentos"].append(movimento_estruturado)
 
             elif tipo_registro == "9":
+                if len(linha_atual) != 21:
+                    raise ValueError(f"Linha {pos} de tamanho diferente para tipo 9.")
                 total_cent = linha_atual[1:15]
                 total_registros = linha_atual[15:]
 
-                valor_total = total_reg_int = "—"
+                valor_total = total_reg_int = None
                 try:
                     valor_total = float(cent_to_euros(total_cent))
                 except:
