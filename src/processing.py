@@ -3,24 +3,27 @@ from parser import ler_ps2
 from utils import format_euro
 
 def mostrar_df(df):
+    df_temp = df.copy()
     print("="*120)
     print(f"{'RESUMO FICHEIRO':^120}\n")
-    df["cabecalho"]["Valor"] = df["cabecalho"]["Valor"].apply(format_euro)
-    df["movimentos"]["Valor"] = df["movimentos"]["Valor"].apply(format_euro)
-    df["fecho"]["Valor_Total"] = df["fecho"]["Valor_Total"].apply(format_euro)
-    texto_cab = df["cabecalho"].to_string(index=False)
+    df_temp["cabecalho"]["Valor"] = df_temp["cabecalho"]["Valor"].apply(format_euro)
+    df_temp["movimentos"]["Valor"] = df_temp["movimentos"]["Valor"].apply(format_euro)
+    df_temp["fecho"]["Valor_Total"] = df_temp["fecho"]["Valor_Total"].apply(format_euro)
+    texto_cab = df_temp["cabecalho"].to_string(index=False)
     for linha in texto_cab.splitlines():
         print(linha.center(120))
     print("="*120)
-    print("RESUMO FINAL\n".center(120))
-    texto_mov = df["fecho"].to_string(index=False)
-    for linha in texto_mov.splitlines():
+    print("RESUMO GLOBAL\n".center(120))
+    texto_fec = df_temp["fecho"].to_string(index=False)
+    for linha in texto_fec.splitlines():
+        linha = linha.replace("_", " ")
         print(linha.center(120))
     print("="*120)
     print("MOVIMENTOS\n".center(120))
-    texto_fec = df["movimentos"].to_string(index=False)
-    for linha in texto_fec.splitlines():
+    texto_mov = df_temp["movimentos"].to_string(index=False)
+    for linha in texto_mov.splitlines():
         print(linha.center(120))
+    print("\n\n\n")
 
 def resumo_varios_ficheiros(estrutura_dados):
     try:
@@ -97,6 +100,7 @@ def processar_ficheiros(paths):
                 return False, erros
             else:
                 todos_ficheiros[info["cabecalho"]["Ficheiro"]] = maybe_df
+                todos_ficheiros["resumo"] = maybe_df
             return True, todos_ficheiros
        else:
            erros.append(info)
