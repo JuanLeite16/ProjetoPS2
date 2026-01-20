@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./doc/logo.png" alt="Logo PS2" width="200">
+  <img src="./docs/logo.png" alt="Logo PS2" width="200">
 </p>
 
 # Análise de arquivos PS2
