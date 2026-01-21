@@ -6,16 +6,16 @@ def ler_ps2(path):
     try:
         p = validar_ps2(path)
     except Exception as e:
-        return False, f"Arquivo: {path}. Erro: {e}"
+        return False, [path, f"Arquivo: {path}. Erro: {e}"]
     
     try:
         with open(p, "r", encoding="utf-8") as ficheiro:
             try:
                 linhas_lista = [linha.rstrip("\r\n") for linha in ficheiro]
             except Exception as e:
-                return False, f"Arquivo: {p.name}. Erro: {e}"
+                return False, [path, f"Arquivo: {path}. Erro: {e}"]
     except Exception as e:
-        return False, f"Arquivo: {p.name}. Erro: {e}"
+        return False, [path, f"Arquivo: {path}. Erro: {e}"]
 
     dados_estruturados = {
         "cabecalho": {},
@@ -26,6 +26,8 @@ def ler_ps2(path):
 
     try:
         for pos, linha_atual in enumerate(linhas_lista, start=1):
+            if not linha_atual:
+                return False, [path, f"Arquivo: {p.name}. Erro: linha vazia na linha {pos}"]
             erros_dados = []
             tipo_registro = linha_atual[0]
 
@@ -137,12 +139,12 @@ def ler_ps2(path):
             else:
                 raise ValueError(f"Arquivo corrompido na linha: {pos}")
     except Exception as e:
-        return False, f"Arquivo: {p.name}. Erro: {e}"
+        return False, [path, f"Arquivo: {path}. Erro: {e}"]
 
     try:
         if validar_existencia_dados(dados_estruturados) == []:
             raise ValueError(f"Arquivo não tem movimentos.")
     except Exception as e:
-        return False, f"Arquivo: {p.name}. Erro: {e}"
+        return False, [path, f"Arquivo: {path}. Erro: {e}"]
     
     return True, dados_estruturados

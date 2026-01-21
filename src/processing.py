@@ -64,9 +64,12 @@ def transformar_para_df(estrutura_dados):
 
 def processar_ficheiros(paths):
     if not isinstance(paths, list):
-        return False, f"Não contém ficheiros para analisar."
+        return False, None, {"erro": f"Não contém ficheiros para analisar."}
+    if paths == []:
+        return False, None, {"erro": f"Não contém ficheiros para analisar."}
     todos_ficheiros = {}
-    erros = []
+    erros = {}
+    c = 0
     if len(paths) > 1:
         ficheiros_agrupados = {"cabecalho": [], "movimentos": [], "fecho": []}
         for path in paths:
@@ -77,31 +80,33 @@ def processar_ficheiros(paths):
                 ficheiros_agrupados["movimentos"].extend(info["movimentos"].copy())
                 ficheiros_agrupados["fecho"].append(info["fecho"].copy())
             else:
-                erros.append(info)
+                erros[info[0]] = info[1]
         for key, values in todos_ficheiros.items():
             ok, maybe_df = transformar_para_df(values)
             if not ok:
-                erros.append(maybe_df)
+                erros[paths[c]] = maybe_df
+                c += 1
             else:
                 todos_ficheiros[key] = maybe_df
+                c += 1
         ok, maybe_resumo = resumo_varios_ficheiros(ficheiros_agrupados)
         if not ok:
-            erros.append(maybe_resumo)
-            return False, erros
+            erros["resumo"] = maybe_resumo
+            return False, None, erros
         else:
             todos_ficheiros["resumo"] = maybe_resumo
-            return True, todos_ficheiros
+            return True, todos_ficheiros, erros
     else:
        ok, info = ler_ps2(paths[0]) 
        if ok:
             ok, maybe_df = transformar_para_df(info)
             if not ok:
-                erros.append(maybe_df)
-                return False, erros
+                erros[paths[0]] = maybe_df
+                return False, None, erros
             else:
                 todos_ficheiros[info["cabecalho"]["Ficheiro"]] = maybe_df
                 todos_ficheiros["resumo"] = maybe_df
-            return True, todos_ficheiros
+            return True, todos_ficheiros, erros
        else:
-           erros.append(info)
-           return False, erros
+           erros[info[0]] = info[1]
+           return False, None, erros
