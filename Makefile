@@ -1,4 +1,4 @@
-SRC = src/cli.py
+SRC = src/Python/cli.py
 DATA = $(wildcard data/*.ps2)
 VENV = myenv
 PYTHON = $(VENV)/bin/python
@@ -6,7 +6,7 @@ PIP = $(VENV)/bin/pip
 SHINY = $(VENV)/bin/shiny
 REQS = $(VENV)/bin/pipreqs
 shiny: install
-	$(SHINY) run src/app.py --reload
+	$(SHINY) run src/Python/app.py --reload
 
 cli:
 	$(PYTHON) $(SRC) $(DATA)

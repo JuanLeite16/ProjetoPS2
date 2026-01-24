@@ -85,7 +85,7 @@ app_ui = ui.page_fluid(
 
 
 def server(input, output, session):
-    diretorio_base = Path(__file__).parent.parent
+    diretorio_base = Path(__file__).parent.parent.parent
     caminho_default = diretorio_base / "data" / "1.ps2"
     
     try:
