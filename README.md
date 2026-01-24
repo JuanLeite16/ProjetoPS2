@@ -20,24 +20,20 @@ Para a realização e cumprimento dos objetivos foram utilizadas as seguintes li
 
 ## Como Executar
 ### **Pré-requisitos:**
-Antes de executar o programa via CLI ou shiny é necessário a criação de uma venv e a instalação das bibliotecas usada no projeto.
+Antes de executar o programa via CLI ou shiny é necessário a criação de uma venv e a instalação das bibliotecas usada no projeto. Para instalar e rodar tudo corretamente e necessário estar na pasta raiz do projeto.
 
+### Venv e Bibliotecas:
 ```
-python3 -m venv venv
-source venv/bin/activate          # Linux/macOS
-venv/Scripts/activate             # Windows
-
-pip install -r requirements.txt
+make venv
+make install
 ```
 
-### CLI
+### CLI:
 ```
-cd src
-python cli.py <ficheiro1> <ficheiro2> <...>
+make cli
 ```
 
-### Shiny
+### Shiny:
 ```
-cd src
-shiny run app.py
+make shiny
 ```
