@@ -19,4 +19,21 @@ Para a realização e cumprimento dos objetivos foram utilizadas as seguintes li
 ## Organização do Repositório
 
 ## Como Executar
-### Pré-requisitos
+### **Pré-requisitos:**
+Antes de executar o programa via CLI ou shiny é necessário a criação de uma venv e a instalação das bibliotecas usada no projeto. Para instalar e rodar tudo corretamente e necessário estar na pasta raiz do projeto.
+
+### Venv e Bibliotecas:
+```
+make venv
+make install
+```
+
+### CLI:
+```
+make cli
+```
+
+### Shiny:
+```
+make shiny
+```

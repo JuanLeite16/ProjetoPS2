@@ -16,7 +16,7 @@ def format_float(x):
 
 def cent_to_euros(cent):
     try:
-        return f"{float(cent)/100:.2f}"
+        return f"{int(cent)/100:.2f}"
     except Exception as e:
         raise Exception(f"Erro: {e}")
 

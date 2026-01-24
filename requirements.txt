@@ -1,0 +1,4 @@
+matplotlib==3.10.8
+pandas==3.0.0
+questionary==2.1.1
+shiny==1.5.1
