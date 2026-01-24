@@ -4,6 +4,7 @@ VENV = myenv
 PYTHON = $(VENV)/bin/python
 PIP = $(VENV)/bin/pip
 SHINY = $(VENV)/bin/shiny
+REQS = $(VENV)/bin/pipreqs
 shiny: install
 	$(SHINY) run src/app.py --reload
 
@@ -18,3 +19,6 @@ install: venv
 
 docs:
 	doxygen Doxyfile
+
+reqs: venv
+	$(REQS) . --force --ignore myenv,docs,data,__pycache___
