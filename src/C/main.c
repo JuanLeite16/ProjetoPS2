@@ -1,14 +1,11 @@
 #include <string.h>
 #include <stdio.h>
-#include <strings.h>
-typedef struct {
-    int id_cliente;
-    char nome[100];
-    char nif[10];
-    char nib[22];
-} Cliente;
+#include <stdlib.h>
+#include "all.h"
 
 int main(){
-    Cliente Clientes[100];
+    Cliente Clientes[MAX_CLIENTE];
+    Consumo Consumos[MAX_CONSUMO];
+    Periodo Periodos[MAX_PERIODO];
     return 0;
 }
