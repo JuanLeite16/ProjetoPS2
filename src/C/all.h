@@ -1,8 +1,6 @@
 #ifndef ALL_H
 #define ALL_H
 
-#include <stdbool.h>
-
 #define MAX_CLIENTE 100
 #define MAX_CONSUMO 500
 #define MAX_PERIODO 120
@@ -12,9 +10,6 @@ typedef struct {
     char nome[100];
     char nif[10];
     char nib[22];
-    bool nif_valido;
-    bool nib_valido;
-
 } Cliente;
 
 typedef struct {
@@ -34,8 +29,17 @@ typedef struct {
     int id_cliente;
     char nif[10];
     char nib[22];
-    float valorPagar;
+    int valorPagar;
+    int tipo_movimento;
     char descricao[27];
 } Cobranca;
+
+int carregaClientes(const char *caminho, Cliente arrClientes[]);
+
+int carregaConsumos(const char *caminho, Consumo arrConsumos[]);
+
+int carregaPeriodos(const char *caminho, Periodo arrPeriodos[]);
+
+float precoPeriodo(int mes, int ano, int n_periodos, Periodo arrPeriodos[]);
 
 #endif
