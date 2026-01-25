@@ -15,7 +15,7 @@ Para a realização e cumprimento dos objetivos foram utilizadas as seguintes li
 * **Python**: Validação e manipulação de dados e visualização de métricas.
 
 ## Documentação
-A documentação foi feita com a biblioteca externa Doxygen
+A documentação foi feita com a biblioteca externa Doxygen e Doxywizard.
 
 ## Organização do Repositório
 
