@@ -126,7 +126,7 @@ int processarDados(int mes, int ano, float preco, int n_consumos, int n_clientes
             int id = arrConsumos[i].id_cliente;
             int aPagar = calcularDebito(preco, kWh_gasto);
             int tipo_movimento = rand() % 2 + 1;
-            for(int j = 0;i < n_clientes; j++){
+            for(int j = 0;j < n_clientes; j++){
                 if(arrClientes[j].id_cliente == id){
                     strcpy(nif, arrClientes[j].nif);
                     strcpy(nib, arrClientes[j].nib);
@@ -136,13 +136,13 @@ int processarDados(int mes, int ano, float preco, int n_consumos, int n_clientes
             }
             arrCobrancas[n_cobranca].id_cliente = id;
             strncpy(arrCobrancas[n_cobranca].nif, nif, 9);
-            arrCobrancas[n_cobranca].nif[10] = '\0';
+            arrCobrancas[n_cobranca].nif[9] = '\0';
             strncpy(arrCobrancas[n_cobranca].nib, nib, 21);
-            arrCobrancas[n_cobranca].nib[22] = '\0';
+            arrCobrancas[n_cobranca].nib[21] = '\0';
             arrCobrancas[n_cobranca].valorPagar = aPagar;
             arrCobrancas[n_cobranca].tipo_movimento = tipo_movimento;
             strncpy(arrCobrancas[n_cobranca].descricao, nome, 27);
-            arrCobrancas[n_cobranca].descricao[28] = '\0';
+            arrCobrancas[n_cobranca].descricao[27] = '\0';
             n_cobranca++;
             continue;
         }

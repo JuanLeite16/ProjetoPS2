@@ -48,4 +48,8 @@ int processarDados(int mes, int ano, float preco, int n_consumos, int n_clientes
 
 int calcularDebito(float preco, int kWh);
 
+int gerarPS2(int mes, int ano, int n_cobrancas, Cobranca Cobrancas[]);
+
+void criar_nif_valido(int n_cobrancas, Cobranca Cobrancas[]);
+
 #endif

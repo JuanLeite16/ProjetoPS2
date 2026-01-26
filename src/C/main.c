@@ -8,9 +8,9 @@ int main(){
     Consumo Consumos[MAX_CONSUMO];
     Periodo Periodos[MAX_PERIODO];
     Cobranca Cobrancas[MAX_COBRANCA];
-    int n_clientes = carregaClientes("../../../data/clientes.txt", Clientes);
-    int n_consumos = carregaConsumos("../../../data/consumos.txt", Consumos);
-    int n_periodos = carregaPeriodos("../../../data/periodos.txt", Periodos);
+    int n_clientes = carregaClientes("data/clientes.txt", Clientes);
+    int n_consumos = carregaConsumos("data/consumos.txt", Consumos);
+    int n_periodos = carregaPeriodos("data/periodos.txt", Periodos);
 
     if (n_clientes == 0 || n_consumos == 0 || n_periodos == 0) {
         printf("Erro crítico: Falha ao carregar ficheiros de dados.\n");
@@ -36,8 +36,12 @@ int main(){
     } while(!ok);
 
     float preco = precoPeriodo(mes, ano, n_periodos, Periodos);
-    int n_cobranca = processarDados(mes, ano, preco, n_consumos, n_clientes,
+    int n_cobrancas = processarDados(mes, ano, preco, n_consumos, n_clientes,
         Clientes, Consumos, Cobrancas);
-
+    
+    criar_nif_valido(n_cobrancas, Cobrancas);
+    int valido = gerarPS2(mes, ano, n_cobrancas, Cobrancas);
+    if(valido) printf("Ficheiro criado com sucesso!\n");
+    else printf("Ficheiro não foi criado.\n");
     return 0;
 }
