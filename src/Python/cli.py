@@ -8,11 +8,6 @@ from utils import limpar_terminal
 
 ficheiros = sys.argv[1:]
 
-pd.set_option('display.max_rows', None)
-pd.set_option('display.max_columns', None)
-pd.set_option('display.width', 1000)
-pd.set_option('display.colheader_justify', 'center')
-
 if not ficheiros:
     print("\033[1;31mPROGRAMA MAL EXECUTADO. ACESSE O README PARA MAIS INFORMAÇÕES.\033[m")
     sys.exit(1)

@@ -3,6 +3,11 @@ from parser import ler_ps2
 from utils import format_euro
 
 def mostrar_df(df):
+    pd.set_option('display.max_rows', None)
+    pd.set_option('display.max_columns', None)
+    pd.set_option('display.width', 1000)
+    pd.set_option('display.colheader_justify', 'center')
+    
     df_temp = df.copy()
     print("="*120)
     print(f"{'RESUMO FICHEIRO':^120}\n")
