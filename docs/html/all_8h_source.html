@@ -1,0 +1,181 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Projeto PS2: Código-Fonte de src/C/all.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Projeto PS2
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Localizar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrada</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_382b62fd9ca97535352e87eb3043a695.html">C</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">all.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="all_8h.html">Ir para a documentação deste ficheiro.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#ifndef ALL_H</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#define ALL_H</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment">// DImensões definidas nos requesitos técnicos</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#define MAX_CLIENTE 100</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#define MAX_CONSUMO 500</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#define MAX_PERIODO 120</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#define MAX_COBRANCA 500</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="foldopen" id="foldopen00023" data-start="{" data-end="};">
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="structCliente.html">   23</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="structCliente.html#a48224ee188fe8045f0af87593d8bc8be">   24</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="structCliente.html#a48224ee188fe8045f0af87593d8bc8be">id_cliente</a>;   </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="structCliente.html#a6c4f076c44d94b5ab001183aa05f0513">   25</a></span>    <span class="keywordtype">char</span> nome[100];   </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="structCliente.html#a41e8f453ed5387b438f97b47cf32ff33">   26</a></span>    <span class="keywordtype">char</span> nif[10];     </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="structCliente.html#aa58b4fa0e61212f4994f046ecf817146">   27</a></span>    <span class="keywordtype">char</span> nib[22];     </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>} <a class="code hl_struct" href="structCliente.html">Cliente</a>;</div>
+</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="foldopen" id="foldopen00034" data-start="{" data-end="};">
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="structConsumo.html">   34</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="structConsumo.html#a4a3fc2bb03d974bf33a47ca14f40e389">   35</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="structConsumo.html#a4a3fc2bb03d974bf33a47ca14f40e389">id_cliente</a>;   </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="structConsumo.html#a9954271237b6d60abc4f1b77103dc8f4">   36</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="structConsumo.html#a9954271237b6d60abc4f1b77103dc8f4">ano</a>;          </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="structConsumo.html#a494558580c1d6fe0c6faac9868442ddd">   37</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="structConsumo.html#a494558580c1d6fe0c6faac9868442ddd">mes</a>;          </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="structConsumo.html#a71fb8c4e38fb4b0a0ff69445285fc44b">   38</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="structConsumo.html#a71fb8c4e38fb4b0a0ff69445285fc44b">consumo</a>;    </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>} <a class="code hl_struct" href="structConsumo.html">Consumo</a>;</div>
+</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="foldopen" id="foldopen00045" data-start="{" data-end="};">
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="structPeriodo.html">   45</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="structPeriodo.html#a5adab2cba12af8d14815d5b771e59c19">   46</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="structPeriodo.html#a5adab2cba12af8d14815d5b771e59c19">ano</a>;        </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="structPeriodo.html#a2a8749d9ea8626fb9266d93bf0f3df70">   47</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="structPeriodo.html#a2a8749d9ea8626fb9266d93bf0f3df70">mes</a>;        </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="structPeriodo.html#acf785290c2b026a743aeb66514b9e12b">   48</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="structPeriodo.html#acf785290c2b026a743aeb66514b9e12b">preco</a>;    </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>} <a class="code hl_struct" href="structPeriodo.html">Periodo</a>;</div>
+</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="foldopen" id="foldopen00055" data-start="{" data-end="};">
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="structCobranca.html">   55</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="structCobranca.html#ad8de00fce07e6144721d060f5878d2b0">   56</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="structCobranca.html#ad8de00fce07e6144721d060f5878d2b0">id_cliente</a>;      </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="structCobranca.html#a073322f7d855df4c925b2f18403914c2">   57</a></span>    <span class="keywordtype">char</span> nif[10];        </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="structCobranca.html#af971bb1eb63b68df9fda7e145165362a">   58</a></span>    <span class="keywordtype">char</span> nib[22];        </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="structCobranca.html#a7cf293e13a1edcb6107ca09d2dd7c303">   59</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="structCobranca.html#a7cf293e13a1edcb6107ca09d2dd7c303">valorPagar</a>;      </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="structCobranca.html#a1717258c9a983feb961c91d015c8ddb3">   60</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="structCobranca.html#a1717258c9a983feb961c91d015c8ddb3">tipo_movimento</a>;  </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="structCobranca.html#a95dada9bd1db4a615da4ea0debfbffb0">   61</a></span>    <span class="keywordtype">char</span> descricao[28];  </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>} <a class="code hl_struct" href="structCobranca.html">Cobranca</a>;</div>
+</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="keywordtype">int</span> <a class="code hl_function" href="all_8h.html#ac493e9814604108841505483b2db1d25">carregaClientes</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *caminho, <a class="code hl_struct" href="structCliente.html">Cliente</a> arrClientes[]);</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="keywordtype">int</span> <a class="code hl_function" href="all_8h.html#ae02e61f662763ec02b55f2a59ed5af05">carregaConsumos</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *caminho, <a class="code hl_struct" href="structConsumo.html">Consumo</a> arrConsumos[]);</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="keywordtype">int</span> <a class="code hl_function" href="all_8h.html#a58689bef95a97cbf4a4c6f2c86d443e9">carregaPeriodos</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *caminho, <a class="code hl_struct" href="structPeriodo.html">Periodo</a> arrPeriodos[]);</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="keywordtype">float</span> <a class="code hl_function" href="all_8h.html#adbc25aad64f98f51664ca80c8dfd9653">precoPeriodo</a>(<span class="keywordtype">int</span> mes, <span class="keywordtype">int</span> ano, <span class="keywordtype">int</span> n_periodos, <a class="code hl_struct" href="structPeriodo.html">Periodo</a> arrPeriodos[]);</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span><span class="keywordtype">int</span> <a class="code hl_function" href="all_8h.html#a67290c4c9c163fe3b0546b811187f62c">processarDados</a>(<span class="keywordtype">int</span> mes, <span class="keywordtype">int</span> ano, <span class="keywordtype">float</span> preco, <span class="keywordtype">int</span> n_consumos, <span class="keywordtype">int</span> n_clientes,</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    <a class="code hl_struct" href="structCliente.html">Cliente</a> arrClientes[], <a class="code hl_struct" href="structConsumo.html">Consumo</a> arrConsumos[], <a class="code hl_struct" href="structCobranca.html">Cobranca</a> arrCobrancas[]);</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span><span class="keywordtype">int</span> <a class="code hl_function" href="all_8h.html#a9d8d2dc02c40c3469f920c482a6d5b62">calcularDebito</a>(<span class="keywordtype">float</span> preco, <span class="keywordtype">int</span> kWh);    </div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span> </div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span><span class="keywordtype">int</span> <a class="code hl_function" href="all_8h.html#aa237760f5ca33e6166081c9682e7af8c">gerarPS2</a>(<span class="keywordtype">int</span> mes, <span class="keywordtype">int</span> ano, <span class="keywordtype">int</span> n_cobrancas, <a class="code hl_struct" href="structCobranca.html">Cobranca</a> Cobrancas[]);</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span> </div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span><span class="keywordtype">void</span> <a class="code hl_function" href="all_8h.html#afc2631f36d2964712a68135c618c0e36">criar_nif_valido</a>(<span class="keywordtype">int</span> n_cobrancas, <a class="code hl_struct" href="structCobranca.html">Cobranca</a> Cobrancas[]);</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span> </div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span><span class="keywordtype">void</span> <a class="code hl_function" href="all_8h.html#ace5fdcaac8263b6f62d97d09a99a442c">criar_nib_valido</a>(<span class="keywordtype">int</span> n_cobrancas, <a class="code hl_struct" href="structCobranca.html">Cobranca</a> Cobrancas[]);</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span> </div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aall_8h_html_a58689bef95a97cbf4a4c6f2c86d443e9"><div class="ttname"><a href="all_8h.html#a58689bef95a97cbf4a4c6f2c86d443e9">carregaPeriodos</a></div><div class="ttdeci">int carregaPeriodos(const char *caminho, Periodo arrPeriodos[])</div><div class="ttdoc">Carrega os períodos tarifários a partir de um ficheiro de texto.</div><div class="ttdef"><b>Definição</b> funcoes.c:95</div></div>
+<div class="ttc" id="aall_8h_html_a67290c4c9c163fe3b0546b811187f62c"><div class="ttname"><a href="all_8h.html#a67290c4c9c163fe3b0546b811187f62c">processarDados</a></div><div class="ttdeci">int processarDados(int mes, int ano, float preco, int n_consumos, int n_clientes, Cliente arrClientes[], Consumo arrConsumos[], Cobranca arrCobrancas[])</div><div class="ttdoc">Processa os consumos e gera as cobranças dos clientes.</div><div class="ttdef"><b>Definição</b> funcoes.c:128</div></div>
+<div class="ttc" id="aall_8h_html_a9d8d2dc02c40c3469f920c482a6d5b62"><div class="ttname"><a href="all_8h.html#a9d8d2dc02c40c3469f920c482a6d5b62">calcularDebito</a></div><div class="ttdeci">int calcularDebito(float preco, int kWh)</div><div class="ttdoc">Calcula o valor do débito a pagar.</div><div class="ttdef"><b>Definição</b> funcoes.c:177</div></div>
+<div class="ttc" id="aall_8h_html_aa237760f5ca33e6166081c9682e7af8c"><div class="ttname"><a href="all_8h.html#aa237760f5ca33e6166081c9682e7af8c">gerarPS2</a></div><div class="ttdeci">int gerarPS2(int mes, int ano, int n_cobrancas, Cobranca Cobrancas[])</div><div class="ttdoc">Gera um ficheiro PS2 para um mês/ano com base nas cobranças.</div><div class="ttdef"><b>Definição</b> geraPS2.c:17</div></div>
+<div class="ttc" id="aall_8h_html_ac493e9814604108841505483b2db1d25"><div class="ttname"><a href="all_8h.html#ac493e9814604108841505483b2db1d25">carregaClientes</a></div><div class="ttdeci">int carregaClientes(const char *caminho, Cliente arrClientes[])</div><div class="ttdoc">Carrega os dados dos clientes a partir de um ficheiro de texto.</div><div class="ttdef"><b>Definição</b> funcoes.c:17</div></div>
+<div class="ttc" id="aall_8h_html_ace5fdcaac8263b6f62d97d09a99a442c"><div class="ttname"><a href="all_8h.html#ace5fdcaac8263b6f62d97d09a99a442c">criar_nib_valido</a></div><div class="ttdeci">void criar_nib_valido(int n_cobrancas, Cobranca Cobrancas[])</div><div class="ttdoc">Gera e corrige NIBs válidos para as cobranças.</div><div class="ttdef"><b>Definição</b> validacoes.c:45</div></div>
+<div class="ttc" id="aall_8h_html_adbc25aad64f98f51664ca80c8dfd9653"><div class="ttname"><a href="all_8h.html#adbc25aad64f98f51664ca80c8dfd9653">precoPeriodo</a></div><div class="ttdeci">float precoPeriodo(int mes, int ano, int n_periodos, Periodo arrPeriodos[])</div><div class="ttdoc">Obtém o preço de um período específico.</div><div class="ttdef"><b>Definição</b> funcoes.c:166</div></div>
+<div class="ttc" id="aall_8h_html_ae02e61f662763ec02b55f2a59ed5af05"><div class="ttname"><a href="all_8h.html#ae02e61f662763ec02b55f2a59ed5af05">carregaConsumos</a></div><div class="ttdeci">int carregaConsumos(const char *caminho, Consumo arrConsumos[])</div><div class="ttdoc">Carrega os registos de consumo a partir de um ficheiro de texto.</div><div class="ttdef"><b>Definição</b> funcoes.c:58</div></div>
+<div class="ttc" id="aall_8h_html_afc2631f36d2964712a68135c618c0e36"><div class="ttname"><a href="all_8h.html#afc2631f36d2964712a68135c618c0e36">criar_nif_valido</a></div><div class="ttdeci">void criar_nif_valido(int n_cobrancas, Cobranca Cobrancas[])</div><div class="ttdoc">Gera e corrige NIFs válidos para as cobranças.</div><div class="ttdef"><b>Definição</b> validacoes.c:17</div></div>
+<div class="ttc" id="astructCliente_html"><div class="ttname"><a href="structCliente.html">Cliente</a></div><div class="ttdoc">Estrutura que representa um cliente.</div><div class="ttdef"><b>Definição</b> all.h:23</div></div>
+<div class="ttc" id="astructCliente_html_a48224ee188fe8045f0af87593d8bc8be"><div class="ttname"><a href="structCliente.html#a48224ee188fe8045f0af87593d8bc8be">Cliente::id_cliente</a></div><div class="ttdeci">int id_cliente</div><div class="ttdef"><b>Definição</b> all.h:24</div></div>
+<div class="ttc" id="astructCobranca_html"><div class="ttname"><a href="structCobranca.html">Cobranca</a></div><div class="ttdoc">Estrutura que representa uma cobrança de um cliente.</div><div class="ttdef"><b>Definição</b> all.h:55</div></div>
+<div class="ttc" id="astructCobranca_html_a1717258c9a983feb961c91d015c8ddb3"><div class="ttname"><a href="structCobranca.html#a1717258c9a983feb961c91d015c8ddb3">Cobranca::tipo_movimento</a></div><div class="ttdeci">int tipo_movimento</div><div class="ttdef"><b>Definição</b> all.h:60</div></div>
+<div class="ttc" id="astructCobranca_html_a7cf293e13a1edcb6107ca09d2dd7c303"><div class="ttname"><a href="structCobranca.html#a7cf293e13a1edcb6107ca09d2dd7c303">Cobranca::valorPagar</a></div><div class="ttdeci">int valorPagar</div><div class="ttdef"><b>Definição</b> all.h:59</div></div>
+<div class="ttc" id="astructCobranca_html_ad8de00fce07e6144721d060f5878d2b0"><div class="ttname"><a href="structCobranca.html#ad8de00fce07e6144721d060f5878d2b0">Cobranca::id_cliente</a></div><div class="ttdeci">int id_cliente</div><div class="ttdef"><b>Definição</b> all.h:56</div></div>
+<div class="ttc" id="astructConsumo_html"><div class="ttname"><a href="structConsumo.html">Consumo</a></div><div class="ttdoc">Estrutura que representa um registo de consumo de energia.</div><div class="ttdef"><b>Definição</b> all.h:34</div></div>
+<div class="ttc" id="astructConsumo_html_a494558580c1d6fe0c6faac9868442ddd"><div class="ttname"><a href="structConsumo.html#a494558580c1d6fe0c6faac9868442ddd">Consumo::mes</a></div><div class="ttdeci">int mes</div><div class="ttdef"><b>Definição</b> all.h:37</div></div>
+<div class="ttc" id="astructConsumo_html_a4a3fc2bb03d974bf33a47ca14f40e389"><div class="ttname"><a href="structConsumo.html#a4a3fc2bb03d974bf33a47ca14f40e389">Consumo::id_cliente</a></div><div class="ttdeci">int id_cliente</div><div class="ttdef"><b>Definição</b> all.h:35</div></div>
+<div class="ttc" id="astructConsumo_html_a71fb8c4e38fb4b0a0ff69445285fc44b"><div class="ttname"><a href="structConsumo.html#a71fb8c4e38fb4b0a0ff69445285fc44b">Consumo::consumo</a></div><div class="ttdeci">float consumo</div><div class="ttdef"><b>Definição</b> all.h:38</div></div>
+<div class="ttc" id="astructConsumo_html_a9954271237b6d60abc4f1b77103dc8f4"><div class="ttname"><a href="structConsumo.html#a9954271237b6d60abc4f1b77103dc8f4">Consumo::ano</a></div><div class="ttdeci">int ano</div><div class="ttdef"><b>Definição</b> all.h:36</div></div>
+<div class="ttc" id="astructPeriodo_html"><div class="ttname"><a href="structPeriodo.html">Periodo</a></div><div class="ttdoc">Estrutura que representa um período com o respetivo preço.</div><div class="ttdef"><b>Definição</b> all.h:45</div></div>
+<div class="ttc" id="astructPeriodo_html_a2a8749d9ea8626fb9266d93bf0f3df70"><div class="ttname"><a href="structPeriodo.html#a2a8749d9ea8626fb9266d93bf0f3df70">Periodo::mes</a></div><div class="ttdeci">int mes</div><div class="ttdef"><b>Definição</b> all.h:47</div></div>
+<div class="ttc" id="astructPeriodo_html_a5adab2cba12af8d14815d5b771e59c19"><div class="ttname"><a href="structPeriodo.html#a5adab2cba12af8d14815d5b771e59c19">Periodo::ano</a></div><div class="ttdeci">int ano</div><div class="ttdef"><b>Definição</b> all.h:46</div></div>
+<div class="ttc" id="astructPeriodo_html_acf785290c2b026a743aeb66514b9e12b"><div class="ttname"><a href="structPeriodo.html#acf785290c2b026a743aeb66514b9e12b">Periodo::preco</a></div><div class="ttdeci">float preco</div><div class="ttdef"><b>Definição</b> all.h:48</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

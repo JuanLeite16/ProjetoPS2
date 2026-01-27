@@ -1,0 +1,9 @@
+<map id="src/C/geraPS2.c" name="src/C/geraPS2.c">
+<area shape="rect" id="Node000001" title="Programa principal para gerar o ficheiro PS2 a partir dos dados carregados." alt="" coords="55,5,177,31"/>
+<area shape="rect" id="Node000002" href="$all_8h.html" title="Declarações de estruturas, constantes e protótipos de funções do projeto." alt="" coords="5,79,56,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="104,33,57,72,53,68,101,29"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="81,79,151,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="119,31,119,65,113,65,113,31"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="176,79,243,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="133,29,185,68,182,72,129,33"/>
+</map>

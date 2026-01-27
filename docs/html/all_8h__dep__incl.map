@@ -1,0 +1,11 @@
+<map id="src/C/all.h" name="src/C/all.h">
+<area shape="rect" id="Node000001" title="Declarações de estruturas, constantes e protótipos de funções do projeto." alt="" coords="235,5,322,31"/>
+<area shape="rect" id="Node000002" href="$funcoes_8c.html" title="Implementação das funções do projeto." alt="" coords="5,79,125,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="232,37,101,81,99,76,231,32"/>
+<area shape="rect" id="Node000003" href="$geraPS2_8c.html" title="Programa principal para gerar o ficheiro PS2 a partir dos dados carregados." alt="" coords="149,79,272,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="260,42,224,80,220,77,256,39"/>
+<area shape="rect" id="Node000004" href="$main_8c.html" title="Ponto de entrada do programa (leitura de inputs e execução do fluxo principal)." alt="" coords="297,79,399,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="301,39,339,77,335,80,298,43"/>
+<area shape="rect" id="Node000005" href="$validacoes_8c.html" title="Implementação das funções de validação e criação de NIF e NIB do projeto." alt="" coords="424,79,563,104"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="327,32,459,76,458,81,325,37"/>
+</map>

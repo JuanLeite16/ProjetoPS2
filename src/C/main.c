@@ -1,11 +1,5 @@
 /**
- * @mainpage IPCA Energy
- * Sistema para processamento de consumos elétricos e geração de ficheiros PS2.
  * @file main.c
- * @section modules Módulos
- * - funcoes
- * - validacoes
- * - geraPS2
  * @author Juan Lucas Souza Leite
  * @brief Ponto de entrada do programa (leitura de inputs e execução do fluxo principal).
  * @date 2026-01-27

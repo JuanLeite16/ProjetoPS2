@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['como_20executar_0',['Como Executar',['../md_README.html#autotoc_md5',1,'']]]
+  ['bibliotecas_3a_0',['Venv e Bibliotecas:',['../md_README.html#autotoc_md8',1,'']]]
 ];

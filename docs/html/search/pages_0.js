@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['readme_0',['README',['../md_README.html',1,'']]]
+  ['energy_0',['IPCA Energy',['../index.html',1,'']]]
 ];

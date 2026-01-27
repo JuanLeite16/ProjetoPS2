@@ -1,0 +1,5 @@
+<map id="processarDados" name="processarDados">
+<area shape="rect" id="Node000001" title="Processa os consumos e gera as cobranças dos clientes." alt="" coords="5,5,132,31"/>
+<area shape="rect" id="Node000002" href="$funcoes_8c.html#a9d8d2dc02c40c3469f920c482a6d5b62" title="Calcula o valor do débito a pagar." alt="" coords="180,5,296,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="132,15,166,15,166,21,132,21"/>
+</map>

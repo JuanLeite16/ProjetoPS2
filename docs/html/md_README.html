@@ -86,14 +86,46 @@ Descrição do Projeto</h2>
 <li><b>Python</b>: Validação e manipulação de dados e visualização de métricas.</li>
 </ul>
 <h2><a class="anchor" id="autotoc_md3"></a>
-Documentação</h2>
+Descrição do Problema</h2>
+<p>A empresa "IPCA Energy" fornece eletricidade aos seus clientes e pretende automatizar o processo de cobrança mensal.</p>
+<p>A empresa dispõe de ficheiros de texto com a informação dos seus clientes, os consumos mensais registados e o preçário em vigor para cada período.</p>
+<p>O sistema a desenvolver deverá ler estes ficheiros, processar a informação, calcular o valor a faturar a cada cliente e, por fim, gerar um único ficheiro de texto no formato PS2 (simplificado). Este ficheiro será posteriormente enviado ao banco para efetuar a cobrança automática na conta dos clientes que têm o serviço de débito direto ativo.</p>
+<p>Uma etapa crucial do processo é a validação dos dados dos clientes. O sistema deve verificar se o NIF e o NIB de cada cliente são válidos antes de o incluir no ficheiro de débitos diretos.</p>
 <h2><a class="anchor" id="autotoc_md4"></a>
-Organização do Repositório</h2>
+Documentação</h2>
+<p>A documentação foi feita com a biblioteca externa Doxygen e Doxywizard.</p>
 <h2><a class="anchor" id="autotoc_md5"></a>
+Organização do Repositório</h2>
+<p>A estrutura do projeto segue as boas práticas de modularização exigidas:</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadLeft">Diretoria   </th><th class="markdownTableHeadLeft">Descrição    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyLeft">**<a href="./data/"><code>data/</code></a>**   </td><td class="markdownTableBodyLeft">Contém os ficheiros de entrada para testes e processamento.    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyLeft">**<a href="./docs/"><code>docs/</code></a>**   </td><td class="markdownTableBodyLeft">Documentação académica, incluindo o relatório final em LaTeX.    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyLeft">**<a href="./ref/"><code>ref/</code></a>**   </td><td class="markdownTableBodyLeft">Documentação técnica gerada automaticamente via Doxygen (HTML/PDF).    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyLeft">**<a href="./src/"><code>src/</code></a>**   </td><td class="markdownTableBodyLeft">Código-fonte da aplicação (<code>app.py</code>, <code>cli.py</code>, <code>parser.py</code>, etc.).   </td></tr>
+</table>
+<h2><a class="anchor" id="autotoc_md6"></a>
 Como Executar</h2>
-<h3><a class="anchor" id="autotoc_md6"></a>
-Pré-requisitos</h3>
-</div></div><!-- contents -->
+<h3><a class="anchor" id="autotoc_md7"></a>
+&lt;strong&gt;Pré-requisitos&lt;/strong&gt;</h3>
+<p>Antes de executar o programa via CLI ou shiny é necessário a criação de uma venv e a instalação das bibliotecas usada no projeto.</p>
+<p><b>ATENÇÃO</b>: Para instalar e rodar tudo corretamente é PRECISO sempre estar na pasta raiz do projeto.</p>
+<h3><a class="anchor" id="autotoc_md8"></a>
+Venv e Bibliotecas:</h3>
+<p>Para instalar a venv e as bibliotecas necessárias para o projeto é funcionar, é preciso executar esse dois comandos: </p><div class="fragment"><div class="line">make venv</div>
+<div class="line">make install</div>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md9"></a>
+CLI:</h3>
+<p>Para rodar o programa via CLI(Command Line Interface) é preciso executar o seguinte comando: </p><div class="fragment"><div class="line">make cli</div>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md10"></a>
+Shiny:</h3>
+<p>Para rodar o programa via shiny é preciso executar o seguinte comando: </p><div class="fragment"><div class="line">make shiny</div>
+</div><!-- fragment --> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
