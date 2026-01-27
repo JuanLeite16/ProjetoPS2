@@ -1,0 +1,5 @@
+<map id="processing.transformar_para_df" name="processing.transformar_para_df">
+<area shape="rect" id="Node000001" title="Converte uma estrutura de dados em DataFrames." alt="" coords="212,5,385,45"/>
+<area shape="rect" id="Node000002" href="$namespaceprocessing.html#a1eceb0bbbac2649c364aab82faf305f8" title="Processa um ou vários ficheiros PS2 e devolve os dados estruturados." alt="" coords="5,5,164,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="199,28,164,28,164,23,199,23"/>
+</map>

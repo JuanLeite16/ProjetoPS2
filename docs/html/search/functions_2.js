@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['precoperiodo_0',['precoperiodo',['../all_8h.html#adbc25aad64f98f51664ca80c8dfd9653',1,'precoPeriodo(int mes, int ano, int n_periodos, Periodo arrPeriodos[]):&#160;funcoes.c'],['../funcoes_8c.html#adbc25aad64f98f51664ca80c8dfd9653',1,'precoPeriodo(int mes, int ano, int n_periodos, Periodo arrPeriodos[]):&#160;funcoes.c']]],
-  ['processardados_1',['processardados',['../all_8h.html#a67290c4c9c163fe3b0546b811187f62c',1,'processarDados(int mes, int ano, float preco, int n_consumos, int n_clientes, Cliente arrClientes[], Consumo arrConsumos[], Cobranca arrCobrancas[]):&#160;funcoes.c'],['../funcoes_8c.html#a67290c4c9c163fe3b0546b811187f62c',1,'processarDados(int mes, int ano, float preco, int n_consumos, int n_clientes, Cliente arrClientes[], Consumo arrConsumos[], Cobranca arrCobrancas[]):&#160;funcoes.c']]]
+  ['gerar_5fficheiro_5fps2_0',['gerar_ficheiro_ps2',['../namespaceprocessing.html#a40e99cf9b867ff7658fe6cca1c834229',1,'processing']]],
+  ['gerarps2_1',['gerarps2',['../all_8h.html#aa237760f5ca33e6166081c9682e7af8c',1,'gerarPS2(int mes, int ano, int n_cobrancas, Cobranca Cobrancas[]):&#160;geraPS2.c'],['../geraPS2_8c.html#aa237760f5ca33e6166081c9682e7af8c',1,'gerarPS2(int mes, int ano, int n_cobrancas, Cobranca Cobrancas[]):&#160;geraPS2.c']]]
 ];

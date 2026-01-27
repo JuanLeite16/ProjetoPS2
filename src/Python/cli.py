@@ -1,3 +1,9 @@
+## @file cli.py
+#  @package cli
+#  @brief Interface de linha de comandos (CLI) para análise e geração de ficheiros PS2.
+#  @details Recebe ficheiros PS2 via argumentos, processa-os e disponibiliza um menu
+#  interativo para visualizar resumos, adicionar/remover ficheiros e gerar um PS2 via executável.
+
 import sys
 import pandas as pd
 from pathlib import Path

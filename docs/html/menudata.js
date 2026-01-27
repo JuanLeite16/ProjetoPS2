@@ -29,6 +29,7 @@ var menudata={children:[
 {text:"Lista de pacotes",url:"namespaces.html"},
 {text:"Membros do Pacote",url:"namespacemembers.html",children:[
 {text:"Tudo",url:"namespacemembers.html"},
+{text:"Funções",url:"namespacemembers_func.html"},
 {text:"Variáveis",url:"namespacemembers_vars.html"}]}]},
 {text:"Estruturas de dados",url:"annotated.html",children:[
 {text:"Estruturas de dados",url:"annotated.html"},

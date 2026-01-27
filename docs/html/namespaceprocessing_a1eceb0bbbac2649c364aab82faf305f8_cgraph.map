@@ -1,0 +1,7 @@
+<map id="processing.processar_ficheiros" name="processing.processar_ficheiros">
+<area shape="rect" id="Node000001" title="Processa um ou vários ficheiros PS2 e devolve os dados estruturados." alt="" coords="5,37,164,77"/>
+<area shape="rect" id="Node000002" href="$namespaceprocessing.html#af24e106550341d23ddfc79d485b0de09" title="Gera um resumo agregado a partir de vários ficheiros." alt="" coords="212,5,404,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="164,43,198,38,199,44,165,49"/>
+<area shape="rect" id="Node000003" href="$namespaceprocessing.html#a0b43d87757495ccf32221397caf8d935" title="Converte uma estrutura de dados em DataFrames." alt="" coords="221,69,395,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="165,66,208,72,207,78,164,71"/>
+</map>

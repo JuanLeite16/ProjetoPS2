@@ -1,7 +1,20 @@
+## @file parser.py
+#  @package parser
+#  @brief Leitura e interpretação de ficheiros PS2.
+#  @details Contém funções para validar e ler ficheiros .ps2, interpretar os
+#  registos (cabeçalho, movimentos e fecho) e estruturar os dados para análise.
+
 import datetime
 from validations import validar_nif, validar_nib, validar_ps2, validar_existencia_dados
 from utils import cent_to_euros, format_euro
 
+## @brief Lê e valida um ficheiro PS2, estruturando os dados em dicionários.
+# @details Valida o ficheiro (.ps2), lê as linhas e interpreta registos do tipo 1
+# (cabeçalho), 2 (movimentos) e 9 (fecho). Valida NIF/NIB, converte valores de
+# cêntimos para euros e devolve um dicionário com "cabecalho", "movimentos" e "fecho".
+# @param path Caminho para o ficheiro PS2 a ler.
+# @return (bool, dict|list) Em caso de sucesso devolve (True, dados_estruturados);
+# caso contrário devolve (False, [path, mensagem_erro]).
 def ler_ps2(path):
     try:
         p = validar_ps2(path)

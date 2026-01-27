@@ -1,3 +1,10 @@
+## @file app.py
+#  @package app
+#  @brief Aplicação web interativa (dashboard) para análise de ficheiros PS2.
+#  @details Implementa uma interface gráfica com Shiny for Python que permite
+#  carregar ficheiros PS2, filtrar por período e cliente, visualizar KPIs,
+#  gráficos e tabelas detalhadas dos movimentos e validações.
+
 from shiny import App, render, ui, reactive
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -83,7 +90,9 @@ app_ui = ui.page_fluid(
     )
 )
 
-
+# -----------------------------------
+# Funções de reatividade da Dashboard
+# -----------------------------------
 def server(input, output, session):
     diretorio_base = Path(__file__).parent.parent.parent
     caminho_default = diretorio_base / "data" / "1.ps2"

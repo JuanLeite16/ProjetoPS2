@@ -1,0 +1,5 @@
+<map id="validations.validar_existencia_dados" name="validations.validar_existencia_dados">
+<area shape="rect" id="Node000001" title="Verifica a existência de dados numa estrutura do tipo dicionário." alt="" coords="5,5,148,45"/>
+<area shape="rect" id="Node000002" href="$namespacevalidations.html#a90fad15ef9c814855ced97fd0fa7ac3a" title="Obtém um valor de um dicionário de forma segura." alt="" coords="196,5,368,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="148,23,182,23,182,28,148,28"/>
+</map>

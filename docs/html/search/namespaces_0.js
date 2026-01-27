@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['styles_0',['styles',['../namespacestyles.html',1,'']]]
+  ['app_0',['app',['../namespaceapp.html',1,'']]]
 ];

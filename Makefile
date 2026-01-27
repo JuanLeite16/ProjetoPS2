@@ -17,8 +17,5 @@ venv:
 install: venv
 	$(PIP) install -r requirements.txt
 
-docs:
-	doxygen Doxyfile
-
 reqs: venv
 	$(REQS) . --force --ignore myenv,docs,data,__pycache___

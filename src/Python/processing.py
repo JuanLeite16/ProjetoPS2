@@ -1,8 +1,19 @@
+## @file processing.py
+#  @package processing
+#  @brief Processamento e agregação de ficheiros PS2.
+#  @details Contém funções responsáveis pela leitura, transformação,
+#  agregação e resumo de ficheiros PS2, bem como pela execução do
+#  processo completo de análise de um ou vários ficheiros.
+
 import pandas as pd
 from parser import ler_ps2
 from utils import format_euro
 import subprocess
 
+## @brief Mostra um resumo formatado dos dados de um DataFrame.
+# @details Apresenta no terminal o resumo do ficheiro, incluindo cabeçalho,
+# fecho e movimentos, aplicando formatação monetária aos valores.
+# @param df Estrutura de dados (DataFrame/dicionário de DataFrames) a apresentar.
 def mostrar_df(df):
     pd.set_option('display.max_rows', None)
     pd.set_option('display.max_columns', None)
@@ -31,6 +42,12 @@ def mostrar_df(df):
         print(linha.center(120))
     print("\n\n\n")
 
+## @brief Gera um resumo agregado a partir de vários ficheiros.
+# @details Constrói DataFrames de cabeçalho, movimentos e fecho, agregando totais,
+# número de registos, contagem de créditos/débitos e mensagens de erro.
+# @param estrutura_dados Estrutura com as chaves "cabecalho", "movimentos" e "fecho".
+# @return (bool, dict|str) Tuplo com sucesso e, em caso positivo, dicionário com
+# DataFrames; caso contrário, mensagem de erro.
 def resumo_varios_ficheiros(estrutura_dados):
     try:
         df_cab = pd.DataFrame(estrutura_dados["cabecalho"])
@@ -55,6 +72,12 @@ def resumo_varios_ficheiros(estrutura_dados):
     except Exception as e:
         return False, f"IMPOSSÍVEL CRIAR RESUMO. ERRO: {e}"
 
+## @brief Converte uma estrutura de dados em DataFrames.
+# @details Transforma os dados de cabeçalho, movimentos e fecho em DataFrames
+# do pandas, mantendo a estrutura original.
+# @param estrutura_dados Estrutura com as chaves "cabecalho", "movimentos" e "fecho".
+# @return (bool, dict|str) Tuplo com sucesso e, em caso positivo, dicionário com
+# DataFrames; caso contrário, mensagem de erro.
 def transformar_para_df(estrutura_dados):
     try:
         df_cab = pd.DataFrame([estrutura_dados["cabecalho"]])
@@ -68,6 +91,12 @@ def transformar_para_df(estrutura_dados):
     except Exception as e:
         return False, f"IMPOSSÍVEL TRANSFORMAR PARA DATAFRAME. ERRO: {e}"
 
+## @brief Processa um ou vários ficheiros PS2 e devolve os dados estruturados.
+# @details Lê cada ficheiro PS2, converte os resultados para DataFrames e gera um
+# resumo (individual ou agregado) conforme a quantidade de ficheiros.
+# @param paths Lista de caminhos para ficheiros PS2.
+# @return (bool, dict|None, dict) Tuplo com sucesso, dicionário com ficheiros processados
+# (inclui a chave "resumo") e dicionário de erros.
 def processar_ficheiros(paths):
     if not isinstance(paths, list):
         return False, None, {"erro": f"Não contém ficheiros para analisar."}
@@ -117,6 +146,13 @@ def processar_ficheiros(paths):
            erros[info[0]] = info[1]
            return False, None, erros
 
+## @brief Executa um executável para gerar um ficheiro PS2.
+# @details Executa o programa externo indicado, enviando o ano e o mês via
+# entrada padrão (stdin), e devolve o código de retorno e eventuais erros.
+# @param caminho_exe Caminho para o executável responsável pela geração do PS2.
+# @param ano Ano de referência.
+# @param mes Mês de referência.
+# @return (int, str) Código de retorno do processo e mensagem de erro (stderr).
 def gerar_ficheiro_ps2(caminho_exe: str, ano: int, mes: int):
     entrada = f"{ano}\n{mes}\n"
     try:
