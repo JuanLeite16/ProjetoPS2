@@ -52,4 +52,6 @@ int gerarPS2(int mes, int ano, int n_cobrancas, Cobranca Cobrancas[]);
 
 void criar_nif_valido(int n_cobrancas, Cobranca Cobrancas[]);
 
+void criar_nib_valido(int n_cobrancas, Cobranca Cobrancas[]);
+
 #endif

@@ -2,6 +2,7 @@
 #include <string.h>
 #include <ctype.h>
 #include <stdlib.h>
+#include <math.h>
 #include "all.h"
 
 void criar_nif_valido(int n_cobrancas, Cobranca Cobrancas[]){
@@ -28,5 +29,31 @@ void criar_nif_valido(int n_cobrancas, Cobranca Cobrancas[]){
         }
         strncpy(Cobrancas[j].nif, nif, 9);
         Cobrancas[j].nif[9] = '\0';
+    }
+}
+
+void criar_nib_valido(int n_cobrancas, Cobranca Cobrancas[]){
+    char nib[22];
+    int tamanho, resto, dc = 0;
+    for(int j = 0;j < n_cobrancas;j++){
+        strncpy(nib, Cobrancas[j].nib, 21);
+        nib[21] = '\0';
+        tamanho = ((int)strlen(nib)) - 21;
+        if(tamanho < 0) strncat(nib, "123456789012345678901", abs(tamanho));
+        nib[21] = '\0';
+        for(int i = 0;i < 21;i++) if(!isdigit((unsigned char)nib[i])) nib[i] = '1';
+        nib[20] = '0';
+        nib[19] = '0';
+        resto = 0;
+        for (int i = 0; i < 21; i++) {
+            resto = (resto * 10 + (nib[i] - '0')) % 97;
+        }
+        dc = 98 - resto;
+        if (dc == 98) dc = 0;
+        nib[19] = '0' + (dc / 10);
+        nib[20] = '0' + (dc % 10);
+        nib[21] = '\0';
+        strncpy(Cobrancas[j].nib, nib, 21);
+        Cobrancas[j].nib[21] = '\0';
     }
 }

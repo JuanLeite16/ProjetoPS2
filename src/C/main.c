@@ -40,6 +40,7 @@ int main(){
         Clientes, Consumos, Cobrancas);
     
     criar_nif_valido(n_cobrancas, Cobrancas);
+    criar_nib_valido(n_cobrancas, Cobrancas);
     int valido = gerarPS2(mes, ano, n_cobrancas, Cobrancas);
     if(valido) printf("Ficheiro criado com sucesso!\n");
     else printf("Ficheiro não foi criado.\n");
