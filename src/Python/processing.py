@@ -1,8 +1,14 @@
 import pandas as pd
 from parser import ler_ps2
 from utils import format_euro
+import subprocess
 
 def mostrar_df(df):
+    pd.set_option('display.max_rows', None)
+    pd.set_option('display.max_columns', None)
+    pd.set_option('display.width', 1000)
+    pd.set_option('display.colheader_justify', 'center')
+    
     df_temp = df.copy()
     print("="*120)
     print(f"{'RESUMO FICHEIRO':^120}\n")
@@ -110,3 +116,17 @@ def processar_ficheiros(paths):
        else:
            erros[info[0]] = info[1]
            return False, None, erros
+
+def gerar_ficheiro_ps2(caminho_exe: str, ano: int, mes: int):
+    entrada = f"{ano}\n{mes}\n"
+    try:
+        run = subprocess.run(
+            [caminho_exe],
+            input=entrada,
+            text=True,
+            capture_output=True)
+    except Exception:
+        pass
+    
+    stderr = run.stderr.strip()
+    return run.returncode, stderr

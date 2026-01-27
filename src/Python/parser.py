@@ -78,7 +78,7 @@ def ler_ps2(path):
                 nib_cliente = linha_atual[11:32]
                 nif_cliente = linha_atual[32:41]
                 valor_pagar = linha_atual[41:55]
-                descricao = linha_atual[55:74]
+                descricao = linha_atual[55:74].strip()
 
                 valor = None
                 tipo_formatado = "Desconhecido"

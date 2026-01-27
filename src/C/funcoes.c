@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include <math.h>
+#include <time.h>
 
 int carregaClientes(const char *caminho, Cliente arrClientes[]){
     FILE *ficheiro = fopen(caminho, "r");
@@ -39,6 +41,7 @@ int carregaClientes(const char *caminho, Cliente arrClientes[]){
 
         n_clientes++;
     }
+    fclose(ficheiro);
     return n_clientes;
 }
 
@@ -74,7 +77,7 @@ int carregaConsumos(const char *caminho, Consumo arrConsumos[]){
 
         n_consumos++;
     }
-
+    fclose(ficheiro);
     return n_consumos;
 }
 
@@ -106,16 +109,45 @@ int carregaPeriodos(const char *caminho, Periodo arrPeriodos[]){
 
         n_periodos++;
     }
-
+    fclose(ficheiro);
     return n_periodos;
 }
 
-int processarDados(int mes, int ano, float preco, int n_consumos, Cliente arrClientes[], Consumo arrConsumos[]){
+int processarDados(int mes, int ano, float preco, int n_consumos, int n_clientes,
+    Cliente arrClientes[], Consumo arrConsumos[], Cobranca arrCobrancas[]){
+    srand(time(NULL));
+    int n_cobranca = 0;
+    char nif[10];
+    char nib[22];
+    char nome[28];
     for(int i = 0;i < n_consumos; i++){
         if(arrConsumos[i].mes == mes && arrConsumos[i].ano == ano){
-            int kWh = arrConsumos[i].consumo;
+            int kWh_gasto = arrConsumos[i].consumo;
+            int id = arrConsumos[i].id_cliente;
+            int aPagar = calcularDebito(preco, kWh_gasto);
+            int tipo_movimento = rand() % 2 + 1;
+            for(int j = 0;j < n_clientes; j++){
+                if(arrClientes[j].id_cliente == id){
+                    strcpy(nif, arrClientes[j].nif);
+                    strcpy(nib, arrClientes[j].nib);
+                    strcpy(nome, arrClientes[j].nome);
+                    break;
+                }
+            }
+            arrCobrancas[n_cobranca].id_cliente = id;
+            strncpy(arrCobrancas[n_cobranca].nif, nif, 9);
+            arrCobrancas[n_cobranca].nif[9] = '\0';
+            strncpy(arrCobrancas[n_cobranca].nib, nib, 21);
+            arrCobrancas[n_cobranca].nib[21] = '\0';
+            arrCobrancas[n_cobranca].valorPagar = aPagar;
+            arrCobrancas[n_cobranca].tipo_movimento = tipo_movimento;
+            strncpy(arrCobrancas[n_cobranca].descricao, nome, 27);
+            arrCobrancas[n_cobranca].descricao[27] = '\0';
+            n_cobranca++;
+            continue;
         }
     }
+    return n_cobranca;
 }
 
 float precoPeriodo(int mes, int ano, int n_periodos, Periodo arrPeriodos[]){
@@ -126,4 +158,8 @@ float precoPeriodo(int mes, int ano, int n_periodos, Periodo arrPeriodos[]){
         }
     }
     return 0;
+}
+
+int calcularDebito(float preco, int kWh){
+    return (int)roundf(preco * kWh * 100);
 }

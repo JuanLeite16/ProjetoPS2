@@ -2,16 +2,11 @@ import sys
 import pandas as pd
 from pathlib import Path
 import questionary
-from processing import mostrar_df, processar_ficheiros
+from processing import mostrar_df, processar_ficheiros, gerar_ficheiro_ps2
 from validations import validar_ps2
 from utils import limpar_terminal
 
 ficheiros = sys.argv[1:]
-
-pd.set_option('display.max_rows', None)
-pd.set_option('display.max_columns', None)
-pd.set_option('display.width', 1000)
-pd.set_option('display.colheader_justify', 'center')
 
 if not ficheiros:
     print("\033[1;31mPROGRAMA MAL EXECUTADO. ACESSE O README PARA MAIS INFORMAÇÕES.\033[m")
@@ -37,7 +32,8 @@ if ok:
                 "2) Mostrar ficheiro específico.",
                 "3) Acrescentar ficheiro.",
                 "4) Remover ficheiro.",
-                "5) Sair."
+                "5) Gerar um ficheiro PS2.",
+                "6) Sair."
             ],
         ).ask()
 
@@ -152,7 +148,28 @@ if ok:
                         except Exception as e:
                             print(f"\033[1;31mERRO: {e}\033[m")
                     ficheiros = sorted(set(str(f) for f in ficheiros))
-            case "5) Sair.":
+            case "5) Gerar um ficheiro PS2.":
+                limpar_terminal()
+                while True:
+                    ano = int(input("Introduza o ANO (2025 ou 2024): "))
+                    if (ano > 2025) or (ano < 2024):
+                        print("\033[1;31mInforme um ano válido.\033[m ", end='')
+                    else:
+                        break
+                while True:
+                    mes = int(input("Introduza o MÊS (1 - 12): "))
+                    if mes < 1 or mes > 12:
+                        print("\033[1;31mInforme um mês válido.\033[m ", end='')
+                    else:
+                        break
+                limpar_terminal()
+                code, err = gerar_ficheiro_ps2("./src/C/output/geraPS2.exe", ano, mes)
+                if code == 0:
+                    print("\033[1;32mFicheiro criado com sucesso!\033[m")
+                else:
+                    print(f"\033[1;31mProblema ao criar ficheiro. {err}\033[m")
+                
+            case "6) Sair.":
                 limpar_terminal()
                 print("\033[1;32mSaindo...\033[m")
                 break
@@ -164,3 +181,4 @@ else:
         except:
             pass
         print(f"\033[1;31m{erro}\033[m")
+        
