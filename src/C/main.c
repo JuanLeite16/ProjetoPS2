@@ -1,9 +1,25 @@
+/**
+ * @mainpage IPCA Energy
+ * Sistema para processamento de consumos elétricos e geração de ficheiros PS2.
+ * @file main.c
+ * @section modules Módulos
+ * - funcoes
+ * - validacoes
+ * - geraPS2
+ * @author Juan Lucas Souza Leite
+ * @brief Ponto de entrada do programa (leitura de inputs e execução do fluxo principal).
+ * @date 2026-01-27
+ *
+ * @copyright Copyright (c) 2026
+ */
+
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include "all.h"
 
 int main(){
+    // Passo 1: Carregamento dos dados dos ficheiros para os arrays
     Cliente Clientes[MAX_CLIENTE];
     Consumo Consumos[MAX_CONSUMO];
     Periodo Periodos[MAX_PERIODO];
@@ -17,6 +33,7 @@ int main(){
         return 0;
     }
 
+    // Passo 2: Input do usuário com mês e ano desejados para cobrança
     int ano, mes, ok = 0;
     do {
         printf("Introduza o ANO (ex: 2025): ");
@@ -35,12 +52,16 @@ int main(){
         } else ok = 1;
     } while(!ok);
 
+    // Passo 3: Ver o preço do kWh na data desejada e carregar os clientes para cobrança
     float preco = precoPeriodo(mes, ano, n_periodos, Periodos);
     int n_cobrancas = processarDados(mes, ano, preco, n_consumos, n_clientes,
         Clientes, Consumos, Cobrancas);
     
+    // Passo 4: Validar e manipular dados
     criar_nif_valido(n_cobrancas, Cobrancas);
     criar_nib_valido(n_cobrancas, Cobrancas);
+
+    // Passo 5: Estruturar e gerar arquivo PS2
     int valido = gerarPS2(mes, ano, n_cobrancas, Cobrancas);
     if(valido) printf("Ficheiro criado com sucesso!\n");
     else printf("Ficheiro não foi criado.\n");

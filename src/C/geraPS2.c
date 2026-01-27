@@ -1,3 +1,11 @@
+/**
+ * @file geraPS2.c
+ * @brief Programa principal para gerar o ficheiro PS2 a partir dos dados carregados.
+ * @date 2026-01-27
+ *
+ * @copyright Copyright (c) 2026
+ */
+
 #include "all.h"
 #include <stdlib.h>
 #include <stdio.h>
@@ -5,6 +13,7 @@
 #define ENTIDADE_NOME "IPCA Energy"
 #define ENTIDADE_NIF "503494933"
 
+// Gera um ficheiro PS2 para um mês/ano com base nas cobranças.
 int gerarPS2(int mes, int ano, int n_cobrancas, Cobranca Cobrancas[]){
     char nome_ficheiro[30];
     int total_cent = 0, total_registros = 0;
@@ -29,5 +38,6 @@ int gerarPS2(int mes, int ano, int n_cobrancas, Cobranca Cobrancas[]){
     fprintf(ficheiro, "1%04d%02d26%-26s%9s%014d%06d\n",
     ano, mes, ENTIDADE_NOME, ENTIDADE_NIF, total_cent, total_registros);
 
+    fclose(ficheiro);
     return 1;
 }

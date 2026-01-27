@@ -1,3 +1,11 @@
+/**
+ * @file validacoes.c
+ * @brief Implementação das funções de validação e criação de NIF e NIB do projeto.
+ * @date 2026-01-27
+ *
+ * @copyright Copyright (c) 2026
+ */
+
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
@@ -5,6 +13,7 @@
 #include <math.h>
 #include "all.h"
 
+// Gera e corrige NIFs válidos para as cobranças.
 void criar_nif_valido(int n_cobrancas, Cobranca Cobrancas[]){
     int soma, tamanho;
     char nif[10];
@@ -32,6 +41,7 @@ void criar_nif_valido(int n_cobrancas, Cobranca Cobrancas[]){
     }
 }
 
+// Gera e corrige NIBs válidos para as cobranças.
 void criar_nib_valido(int n_cobrancas, Cobranca Cobrancas[]){
     char nib[22];
     int tamanho, resto, dc = 0;

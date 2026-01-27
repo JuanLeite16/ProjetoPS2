@@ -1,3 +1,11 @@
+/**
+ * @file funcoes.c
+ * @brief Implementação das funções do projeto.
+ * @date 2026-01-27
+ *
+ * @copyright Copyright (c) 2026
+ */
+
 #include "all.h"
 #include <stdlib.h>
 #include <stdio.h>
@@ -5,6 +13,7 @@
 #include <math.h>
 #include <time.h>
 
+// Carrega os dados dos clientes a partir de um ficheiro de texto.
 int carregaClientes(const char *caminho, Cliente arrClientes[]){
     FILE *ficheiro = fopen(caminho, "r");
     if(ficheiro == NULL){
@@ -45,6 +54,7 @@ int carregaClientes(const char *caminho, Cliente arrClientes[]){
     return n_clientes;
 }
 
+// Carrega os registos de consumo a partir de um ficheiro de texto.
 int carregaConsumos(const char *caminho, Consumo arrConsumos[]){
     FILE * ficheiro = fopen(caminho, "r");
     if(ficheiro == NULL){
@@ -81,6 +91,7 @@ int carregaConsumos(const char *caminho, Consumo arrConsumos[]){
     return n_consumos;
 }
 
+// Carrega os períodos tarifários a partir de um ficheiro de texto.
 int carregaPeriodos(const char *caminho, Periodo arrPeriodos[]){
     FILE * ficheiro = fopen(caminho, "r");
     if(ficheiro == NULL){
@@ -113,6 +124,7 @@ int carregaPeriodos(const char *caminho, Periodo arrPeriodos[]){
     return n_periodos;
 }
 
+// Processa os dados de consumo e gera as cobranças dos clientes.
 int processarDados(int mes, int ano, float preco, int n_consumos, int n_clientes,
     Cliente arrClientes[], Consumo arrConsumos[], Cobranca arrCobrancas[]){
     srand(time(NULL));
@@ -150,6 +162,7 @@ int processarDados(int mes, int ano, float preco, int n_consumos, int n_clientes
     return n_cobranca;
 }
 
+// Obtém o preço associado a um determinado período.
 float precoPeriodo(int mes, int ano, int n_periodos, Periodo arrPeriodos[]){
     for(int i = 0;i < n_periodos; i++){
         if(arrPeriodos[i].ano == ano && arrPeriodos[i].mes == mes){
@@ -160,6 +173,7 @@ float precoPeriodo(int mes, int ano, int n_periodos, Periodo arrPeriodos[]){
     return 0;
 }
 
+// Calcula o valor do preço a pagar com base no consumo de energia.
 int calcularDebito(float preco, int kWh){
     return (int)roundf(preco * kWh * 100);
 }
