@@ -37,7 +37,6 @@ A estrutura do projeto segue as boas práticas de modularização exigidas:
 | :--- | :--- |
 | **[`data/`](./data/)** | Contém os ficheiros de entrada para testes e processamento. |
 | **[`docs/`](./docs/)** | Documentação académica, incluindo o relatório final em LaTeX. |
-| **[`ref/`](./ref/)** | Documentação técnica gerada automaticamente via Doxygen (HTML/PDF). |
 | **[`src/`](./src/)** | Código-fonte da aplicação (`app.py`, `cli.py`, `parser.py`, etc.). |
 
 ## Como Executar
