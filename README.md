@@ -28,7 +28,7 @@ Uma etapa crucial do processo é a validação dos dados dos clientes. O sistema
 cliente são válidos antes de o incluir no ficheiro de débitos diretos. 
 
 ## Documentação
-A documentação foi feita com a biblioteca externa Doxygen e Doxywizard.
+A documentação foi gerada a partir do Doxygen.
 
 ## Organização do Repositório
 A estrutura do projeto segue as boas práticas de modularização exigidas:
